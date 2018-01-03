@@ -21,30 +21,28 @@ var cards = [
 }
 ];
 var cardsInPlay =[];
-
 var checkForMatch = function(){
 	 //contrary to GA instructions, inserting code here causes failure -this may be due to an error of my own earlier on (?)
-	if (cardsInPlay.length === 2) {
-
 			if (cardsInPlay[0] === cardsInPlay[1]) {
 			alert('You have a match!!!');
 			} else {
 			alert("You don't have a match. Try again");
 				}
 		}
-	}
 
 var flipCard = function (){
 	var cardId = this.getAttribute("data-id");
 	console.log("User flipped " + cards[cardId].rank);
 	cardsInPlay.push(cards[cardId].rank);
-	console.log(cards[cardId].cardImage);
-	console.log(cards[cardId].suit);
+	//console.log(cards[cardId].cardImage);
+	//console.log(cards[cardId].suit);
 	this.setAttribute('src', cards[cardId].cardImage);
-	//for some reason this needs to be outside of checkForMatch() - error related to cardId
-
+	if (cardsInPlay.length === 2) {
+    //for some reason this needs to be outside of checkForMatch() - error related to cardId
 	checkForMatch();
+	}
 }
+
 var createBoard = function (){
 	//set standard "for"
 	for (var i = 0; i < cards.length; i++){
@@ -53,7 +51,6 @@ var createBoard = function (){
 		//assign attributes
 		cardElement.setAttribute('src' , 'images/back.png');
 		cardElement.setAttribute('data-id' , i);
-		//execute flip with click - click calls function
 		cardElement.addEventListener('click' , flipCard);
 		// add card for each value in array
 		document.getElementById("game-board").appendChild(cardElement);
@@ -67,13 +64,5 @@ var resetGame = function (){
 	cardsInPlay = []; //remove cardsInPlay
 	createBoard(); //make fresh board
 }
-
-/*  Look up utilization of onclick and HTML to execute JS functions
-Start over below this line...
-if (resetGame.addEventListener)
-resetGame.addEventListener('click' , cleanSlate, false);
-else if (resetGame.attachEvent)
-resetGame.attachEvent('onclick' , cleanSlate); */
-
 createBoard();
 
