@@ -23,12 +23,13 @@ h2 {
 	font-size: 20px;
 }
 a {
+	color: #0D2C40;
     font-size:  18px;
 	text-decoration: none;
 	margin: 20px;
 	border-bottom: 2px solid transparent;
 }
-a:link {
+nav a:link {
 	color: #FFFFFF;
 	text-decoration: none;
 }
@@ -67,14 +68,12 @@ footer {
 	font-weight: 500;
 	overflow: auto;
 }
-.blanco a:link {
-	color: #0D2C40;
-
-}
 .heart {
 	color: red;
 }
 .name {
+	margin: 20px -13px;
+	border-bottom: 2px solid transparent;
 	color: #F15B31;
 	font-weight: 700;
 }
@@ -85,6 +84,7 @@ footer {
 .message {
 	font-family: Raleway;
 	float:  right;
+	margin: 20px 0;
 }
 .clearfix:after {
 visibility: hidden;
