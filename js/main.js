@@ -22,26 +22,36 @@ var cards = [
 ];
 var cardsInPlay =[];
 var checkForMatch = function(){
-	 //contrary to GA instructions, inserting code here causes failure -this may be due to an error of my own earlier on (?)
-		if (cardsInPlay.length === 2){
-			if (cardsInPlay[0] === cardsInPlay[1]) {
-			alert('You have a match!!!');
-			} else {
-			alert("You don't have a match. Try again");
+		//delay alert until after card flip
+		setTimeout (function(){
+			if (cardsInPlay.length === 2){
+				if (cardsInPlay[0] === cardsInPlay[1]) {
+					alert('You have a match!!!');
+				} else {
+					alert("You don't have a match. Try again");
+					}
 				}
-			}
+			} , 300);
 		}
 
 var flipCard = function (){
+	//the following exits the function if 2 cards already flipped
+	if (cardsInPlay.length === 2) {
+			return;
+			}
+
 	var cardId = this.getAttribute("data-id");
-	console.log("User flipped " + cards[cardId].rank);
 	cardsInPlay.push(cards[cardId].rank);
+	this.setAttribute('src', cards[cardId].cardImage);
+	//console.log("User flipped " + cards[cardId].rank);
 	//console.log(cards[cardId].cardImage);
 	//console.log(cards[cardId].suit);
-	this.setAttribute('src', cards[cardId].cardImage);
+	//Below removes Event Listener so you can't double-click and get a match
+	this.removeEventListener('click', flipCard);
 	checkForMatch();
-}
 
+}
+var board = document.getElementById('game-board');
 var createBoard = function (){
 	//set standard "for"
 	for (var i = 0; i < cards.length; i++){
@@ -52,10 +62,10 @@ var createBoard = function (){
 		cardElement.setAttribute('data-id' , i);
 		cardElement.addEventListener('click' , flipCard);
 		// add card for each value in array
-		document.getElementById("game-board").appendChild(cardElement);
+		board.appendChild(cardElement);
 	}
 }
-var board = document.getElementById('game-board');
+
 var resetGame = function (){
 	while(board.hasChildNodes()){
 		board.removeChild(board.firstChild);
