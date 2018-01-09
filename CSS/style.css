@@ -29,10 +29,6 @@ a {
 	margin: 20px;
 	border-bottom: 2px solid transparent;
 }
-nav a:link {
-	color: #FFFFFF;
-	text-decoration: none;
-}
 a:hover {
 	border-color: white;
 }
@@ -40,6 +36,11 @@ a:visited {
 	color: grey;
 	text-decoration: none;
 }
+nav a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
 h2, a {
 	font-family: Raleway, sans-serif;
 	letter-spacing: 1px;

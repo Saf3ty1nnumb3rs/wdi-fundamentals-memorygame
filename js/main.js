@@ -23,11 +23,13 @@ var cards = [
 var cardsInPlay =[];
 var checkForMatch = function(){
 	 //contrary to GA instructions, inserting code here causes failure -this may be due to an error of my own earlier on (?)
+		if (cardsInPlay.length === 2){
 			if (cardsInPlay[0] === cardsInPlay[1]) {
 			alert('You have a match!!!');
 			} else {
 			alert("You don't have a match. Try again");
 				}
+			}
 		}
 
 var flipCard = function (){
@@ -37,10 +39,7 @@ var flipCard = function (){
 	//console.log(cards[cardId].cardImage);
 	//console.log(cards[cardId].suit);
 	this.setAttribute('src', cards[cardId].cardImage);
-	if (cardsInPlay.length === 2) {
-    //for some reason this needs to be outside of checkForMatch() - error related to cardId
 	checkForMatch();
-	}
 }
 
 var createBoard = function (){
@@ -56,7 +55,7 @@ var createBoard = function (){
 		document.getElementById("game-board").appendChild(cardElement);
 	}
 }
-var board = document.getElementById('game-board'); //creates 'game-board' as var - now able to append, etc
+var board = document.getElementById('game-board');
 var resetGame = function (){
 	while(board.hasChildNodes()){
 		board.removeChild(board.firstChild);
