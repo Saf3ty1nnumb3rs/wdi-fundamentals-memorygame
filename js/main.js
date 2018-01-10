@@ -51,10 +51,21 @@ var flipCard = function (){
 	checkForMatch();
 
 }
+var shuffle = function(array){
+  var i = 0,
+      j = 0,
+      temp = null;
+  for (i = array.length -1; i > 0; i -=1){
+      j = Math.floor(Math.random() * (i + 1));
+      temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+  }
+}
 var board = document.getElementById('game-board');
 var createBoard = function (){
 	//set standard "for"
-	for (var i = 0; i < cards.length; i++){
+	for (i = 0 ; i < cards.length ; i++){
 		//create cardElement as DOM element
 		var cardElement = document.createElement('img');
 		//assign attributes
@@ -63,7 +74,9 @@ var createBoard = function (){
 		cardElement.addEventListener('click' , flipCard);
 		// add card for each value in array
 		board.appendChild(cardElement);
-	}
+		}
+	shuffle(cards);
+	console.log(cards);
 }
 
 var resetGame = function (){
