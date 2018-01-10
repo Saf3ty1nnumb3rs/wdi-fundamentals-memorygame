@@ -51,6 +51,7 @@ var flipCard = function (){
 	checkForMatch();
 
 }
+//Brilliant!!!
 var shuffle = function(array){
   var i = 0,
       j = 0,
@@ -75,8 +76,9 @@ var createBoard = function (){
 		// add card for each value in array
 		board.appendChild(cardElement);
 		}
+	// randomize card location AFTER attributes assigned
 	shuffle(cards);
-	console.log(cards);
+	//console.log(cards);
 }
 
 var resetGame = function (){

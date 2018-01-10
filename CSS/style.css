@@ -33,11 +33,16 @@ a:hover {
 	border-color: white;
 }
 a:visited {
-	color: grey;
+	color: #FFB17D;
 	text-decoration: none;
 }
+
 nav a {
 	color: #FFFFFF;
+	text-decoration: none;
+}
+nav a:visited {
+	color: #FFF7EC;
 	text-decoration: none;
 }
 
