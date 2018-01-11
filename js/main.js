@@ -25,7 +25,7 @@ var checkForMatch = function(){
 		//delay alert until after card flip
 		setTimeout (function(){
 			if (cardsInPlay.length === 2){
-				if (cardsInPlay[0] === cardsInPlay[1]) {
+				if (cardsInPlay[0].rank === cardsInPlay[1].rank) {
 					alert('You have a match!!!');
 				} else {
 					alert("You don't have a match. Try again");
@@ -39,16 +39,36 @@ var flipCard = function (){
 	if (cardsInPlay.length === 2) {
 			return;
 			}
-
+	if (cardsInPlay.length === 0){
+		this.setAttribute('index' , 0);
+	}	else {
+		this.setAttribute('index' , 1);
+	}
 	var cardId = this.getAttribute("data-id");
-	cardsInPlay.push(cards[cardId].rank);
+	cardsInPlay.push(cards[cardId]);
 	this.setAttribute('src', cards[cardId].cardImage);
 	//console.log("User flipped " + cards[cardId].rank);
 	//console.log(cards[cardId].cardImage);
 	//console.log(cards[cardId].suit);
 	//Below removes Event Listener so you can't double-click and get a match
 	this.removeEventListener('click', flipCard);
+	this.addEventListener('click', resetCard);
 	checkForMatch();
+}
+
+var resetCard = function () {
+	var idx = this.getAttribute('index');
+	if (cardsInPlay.length === 2) {
+	cardsInPlay.splice(idx, 1);
+    } else {
+    	cardsInPlay.pop();
+    }
+
+	//make sure cIP is populated correctly
+	console.log(cardsInPlay);
+	this.setAttribute('src' , 'images/back.png');
+	this.removeEventListener('click', resetCard, false);
+	this.addEventListener('click' , flipCard, false);
 
 }
 //Brilliant!!!
@@ -72,7 +92,7 @@ var createBoard = function (){
 		//assign attributes
 		cardElement.setAttribute('src' , 'images/back.png');
 		cardElement.setAttribute('data-id' , i);
-		cardElement.addEventListener('click' , flipCard);
+		cardElement.addEventListener('click' , flipCard, false);
 		// add card for each value in array
 		board.appendChild(cardElement);
 		}
@@ -80,13 +100,17 @@ var createBoard = function (){
 	shuffle(cards);
 	//console.log(cards);
 }
-
-var resetGame = function (){
+var resetGame = function () {
+	board.innerHTML = "";
+	cardsInPlay = [];
+	createBoard();
+}
+/* var resetGame = function (){
 	while(board.hasChildNodes()){
 		board.removeChild(board.firstChild);
 	}
 	cardsInPlay = []; //remove cardsInPlay
 	createBoard(); //make fresh board
-}
+} */
 createBoard();
 
