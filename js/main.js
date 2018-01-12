@@ -51,24 +51,28 @@ var flipCard = function (){
 	if (cardsInPlay.length === 2) {
 			return;
 			}
+	// sets index reference for selected cards
 	if (cardsInPlay.length === 0){
 		this.setAttribute('index' , 0);
 	}	else {
 		this.setAttribute('index' , 1);
 	}
+	// get attribute for card identification
 	var cardId = this.getAttribute("data-id");
 	cardsInPlay.push(cards[cardId]);
 	this.setAttribute('src', cards[cardId].cardImage);
 	//console.log("User flipped " + cards[cardId].rank);
 	//console.log(cards[cardId].cardImage);
 	//console.log(cards[cardId].suit);
-	//Below removes Event Listener so you can't double-click and get a match
+	//Below removes Event Listener so you can't click twice and get a match
 	this.removeEventListener('click', flipCard);
+	//add eventListener so you are able to flip back over
 	this.addEventListener('click', resetCard);
 	checkForMatch();
 }
-
+// function to flip face up card back over
 var resetCard = function () {
+	//retrieve index value in order to remove card from cIP array
 	var idx = this.getAttribute('index');
 	if (cardsInPlay.length === 2) {
 	cardsInPlay.splice(idx, 1);
@@ -78,12 +82,16 @@ var resetCard = function () {
 
 	//make sure cIP is populated correctly
 	console.log(cardsInPlay);
+	//reassign img attribute
 	this.setAttribute('src' , 'images/back.png');
+	//remove resetCard eventListener
 	this.removeEventListener('click', resetCard, false);
+	// reinstate flipCard eventListener
 	this.addEventListener('click' , flipCard, false);
 
 }
-//Brilliant!!!
+//Brilliant!!! Not my work though... :(
+//Reassigns location within the array and effectively shuffles the "deck"
 var shuffle = function(array){
   var i = 0,
       j = 0,
@@ -95,7 +103,9 @@ var shuffle = function(array){
       array[j] = temp;
   }
 }
+//create variable for DOM element game-board
 var board = document.getElementById('game-board');
+//distribute cards in DOM
 var createBoard = function (){
 	//set standard "for"
 	for (i = 0 ; i < cards.length ; i++){
@@ -105,18 +115,19 @@ var createBoard = function (){
 		cardElement.setAttribute('src' , 'images/back.png');
 		cardElement.setAttribute('data-id' , i);
 		cardElement.addEventListener('click' , flipCard, false);
-		// add card for each value in array
+		// add card for each value in array within 'game-board'
 		board.appendChild(cardElement);
 		}
 	// randomize card location AFTER attributes assigned
 	shuffle(cards);
-	//console.log(cards);
 }
+//Easy resetGame function - wipe the HTML in 'game-board'
 var resetGame = function () {
 	board.innerHTML = "";
 	cardsInPlay = [];
 	createBoard();
 }
+//more involved resetGame function
 /* var resetGame = function (){
 	while(board.hasChildNodes()){
 		board.removeChild(board.firstChild);
@@ -124,12 +135,17 @@ var resetGame = function () {
 	cardsInPlay = []; //remove cardsInPlay
 	createBoard(); //make fresh board
 } */
+//HIDE YOUR SHAME!!! Errr...remove your losing score vs. the "dealer"
 var resetScore = function() {
+	//set both variables back to 0
 	playerScore = 0;
 	dealerScore = 0;
+	//get elements and replace HTML values
 	document.getElementById("player").innerHTML = playerScore;
 	document.getElementById("dealer").innerHTML = dealerScore;
+	//make sure there is no evidence that a few lines of code beat you
 	console.log(playerScore, dealerScore);
 }
+//initialize your board
 createBoard();
 
