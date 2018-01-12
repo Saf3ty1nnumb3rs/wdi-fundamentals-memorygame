@@ -2,6 +2,11 @@ body {
 	text-align: center;
 	margin: 0;
 }
+header {
+	color:  #FFFFFF;
+	background-color: #F15B31;
+	padding:  30px 20px;
+}
 main {
 	width:  850px;
 	margin: 35px auto;
@@ -21,6 +26,7 @@ nav {
 h2 {
 	color: #0D2C40;
 	font-size: 20px;
+	text-align: center;
 }
 a {
 	color: #0D2C40;
@@ -56,13 +62,12 @@ p {
 	line-height:  26px;
 	font-size:  18px;
 }
-header {
-	color:  #FFFFFF;
-	background-color: #F15B31;
-	padding:  30px 20px;
-}
 img {
 	margin: 40px 8px;
+}
+li {
+	display: inline;
+	padding: 0 10px 0 10px;
 }
 footer {
 	text-transform: uppercase;
@@ -74,6 +79,22 @@ footer {
 	font-weight: 500;
 	overflow: auto;
 }
+.fill {
+
+	max-width: 1440px;
+	font-family: Raleway, sans-serif;
+	background: #B7EDF1;
+	color: #FFB17D ;
+	font-size:  18px;
+	text-align:  center;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin: 20px auto;
+	padding: 0 20px;
+	overflow: auto;
+	letter-spacing: .08em;
+
+}
 .heart {
 	color: red;
 }
@@ -84,11 +105,11 @@ footer {
 	font-weight: 700;
 }
 .copyright {
-	font-family: Raleway;
+	font-family: Raleway, sans-serif;
 	float: left;
 }
 .message {
-	font-family: Raleway;
+	font-family: Raleway, sans-serif;
 	float:  right;
 	margin: 20px 0;
 }
@@ -99,4 +120,7 @@ content:  " ";
 clear:  both;
 height: 0;
 font-size: 0;
+}
+#zero {
+	margin: 20px 0;
 }

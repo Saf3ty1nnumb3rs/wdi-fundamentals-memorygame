@@ -21,14 +21,26 @@ var cards = [
 }
 ];
 var cardsInPlay =[];
+var playerScore = 0;
+var dealerScore = 0;
+
 var checkForMatch = function(){
 		//delay alert until after card flip
 		setTimeout (function(){
 			if (cardsInPlay.length === 2){
+
 				if (cardsInPlay[0].rank === cardsInPlay[1].rank) {
+					playerScore = playerScore += 1;
+					document.getElementById("player").innerHTML = playerScore;
+					document.getElementById("dealer").innerHTML = dealerScore;
 					alert('You have a match!!!');
+					console.log(playerScore, dealerScore);
 				} else {
+					dealerScore = dealerScore += 1;
+					document.getElementById("player").innerHTML = playerScore;
+					document.getElementById("dealer").innerHTML = dealerScore;
 					alert("You don't have a match. Try again");
+					console.log(playerScore, dealerScore);
 					}
 				}
 			} , 300);
@@ -112,5 +124,12 @@ var resetGame = function () {
 	cardsInPlay = []; //remove cardsInPlay
 	createBoard(); //make fresh board
 } */
+var resetScore = function() {
+	playerScore = 0;
+	dealerScore = 0;
+	document.getElementById("player").innerHTML = playerScore;
+	document.getElementById("dealer").innerHTML = dealerScore;
+	console.log(playerScore, dealerScore);
+}
 createBoard();
 
