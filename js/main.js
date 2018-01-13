@@ -25,7 +25,7 @@ var playerScore = 0;
 var dealerScore = 0;
 
 var checkForMatch = function(){
-		//delay alert until after card flip
+//alert generates before card flips - delay alert until after card flip
 		setTimeout (function(){
 			if (cardsInPlay.length === 2){
 
