@@ -1,3 +1,9 @@
+html{
+	box-sizing:border-box
+	}
+*,*:before,*:after{
+		box-sizing:inherit
+	}
 body {
 	text-align: center;
 	margin: 0;
@@ -6,6 +12,7 @@ header {
 	color:  #FFFFFF;
 	background-color: #F15B31;
 	padding:  30px 20px;
+	position:  relative;
 }
 main {
 	width:  850px;
@@ -47,6 +54,10 @@ nav a {
 	color: #FFFFFF;
 	text-decoration: none;
 }
+#memorySidebar a {
+	color: #FFB17D;
+	text-decoration: none;
+}
 nav a:visited {
 	color: #FFF7EC;
 	text-decoration: none;
@@ -78,6 +89,90 @@ footer {
 	letter-spacing: .08em;
 	font-weight: 500;
 	overflow: auto;
+}
+.bar-item {
+	width: 100%;
+    display: block;
+    padding: 8px 16px;
+    border: none;
+    outline: none;
+    white-space: normal;
+    float: none;
+}
+.bgc {
+	background-color: #FFB17D!important;
+}
+.hamburger {
+	color:  #FFFFFF;
+	background-color: #F15B31;
+	border: none;
+	outline: none;
+	position:  absolute;
+	top: 34px;
+	right: 34px;
+}
+.large{
+	font-size: 30px!important;
+}
+.left-align {
+	text-align: left;
+}
+.right-align {
+	text-align: right;
+}
+.animate-right {
+		position:relative;
+		animation:animateright 0.4s;
+	}
+.animate-left {
+		position:relative;
+		animation:animateright 0.4s;
+		animation-direction: reverse;
+	}
+@keyframes animateright{
+	from{right:-300px;opacity:0}
+	to{right:0;opacity:1}
+}
+.sidebar {
+    height: auto;
+    width: 200px;
+    background-color: #B7EDF1;
+    position: fixed!important;
+    z-index: 1;
+    overflow: auto;
+}
+.block {
+	display: block;
+    width: 100%;
+    color:#F15B31;
+}
+.button {
+    border: none;
+    display: inline-block;
+    outline: 0;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 16px;
+    margin: auto;
+}
+.card {
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.drop {
+	font-weight: 600;
+	text-align: left;
+}
+.hide {
+	display: none!important;
+}
+.right {
+    float: right!important;
 }
 .fill {
 
@@ -123,4 +218,8 @@ font-size: 0;
 }
 #zero {
 	margin: 20px 0;
+}
+@media (min-width: 993px)
+.sidebar {
+    display: block!important;
 }

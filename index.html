@@ -7,7 +7,23 @@
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<header>
+	<header  id="top">
+	<div id="memorySidebar" class="sidebar card" style="display: none; top: 100px; right: 0px;">
+		<!-- close button !-->
+		<button onclick="javascript:barClose();" class="bar-item button block left-align bgc" type="button" id="fade">Close &times;</button>
+		<a href="#instructions" class="bar-item button left-align">Instructions</a>
+		<a href="#game-board" class="bar-item button left-align">Game</a>
+		<!-- about drop down !-->
+		<button class="bar-item button drop" type="button" onclick="javascript:accDrop();" style="color: #FFB17D;">About</button>
+		<div id="aboutAcc" class="hide right-align">
+			<a	href="https://twitter.com/baconsamples" title="Twitter" target="_blank" class="bar-item button">Twitter</a>
+			<a href="https://www.instagram.com/saf3ty1nnumb3rs/" title="Instagram" target="_blank" class="bar-item button">Instagram</a>
+			<a href="https://www.linkedin.com/in/josh-sample-b89987a1/" title="LinkedIn" target="_blank" class="bar-item button">Linkedin</a>
+		</div>
+		<a href="#top" class="bar-item button left-align">Back To Top</a>
+	</div>
+		<!-- hamburger !-->
+	<button class="large right hamburger" type="button" onclick="javascript:barOpen()">&#9776;</button>
 
 	<h1>Memory Game</h1>
 

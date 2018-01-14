@@ -31,14 +31,14 @@ var checkForMatch = function(){
 
 				if (cardsInPlay[0].rank === cardsInPlay[1].rank) {
 					playerScore = playerScore += 1;
-					document.getElementById("player").innerHTML = playerScore;
-					document.getElementById("dealer").innerHTML = dealerScore;
+					document.querySelector("#player").innerHTML = playerScore;
+					document.querySelector("#dealer").innerHTML = dealerScore;
 					alert('You have a match!!!');
 					console.log(playerScore, dealerScore);
 				} else {
 					dealerScore = dealerScore += 1;
-					document.getElementById("player").innerHTML = playerScore;
-					document.getElementById("dealer").innerHTML = dealerScore;
+					document.querySelector("#player").innerHTML = playerScore;
+					document.querySelector("#dealer").innerHTML = dealerScore;
 					alert("You don't have a match. Try again");
 					console.log(playerScore, dealerScore);
 					}
@@ -59,8 +59,8 @@ var flipCard = function (){
 	}
 	// get attribute for card identification
 	var cardId = this.getAttribute("data-id");
-	cardsInPlay.push(cards[cardId]);
 	this.setAttribute('src', cards[cardId].cardImage);
+	cardsInPlay.push(cards[cardId]);
 	//console.log("User flipped " + cards[cardId].rank);
 	//console.log(cards[cardId].cardImage);
 	//console.log(cards[cardId].suit);
@@ -118,7 +118,7 @@ var createBoard = function (){
 		// add card for each value in array within 'game-board'
 		board.appendChild(cardElement);
 		}
-	// randomize card location AFTER attributes assigned
+// randomize card location AFTER attributes assigned
 	shuffle(cards);
 }
 //Easy resetGame function - wipe the HTML in 'game-board'
@@ -135,16 +135,50 @@ var resetGame = function () {
 	cardsInPlay = []; //remove cardsInPlay
 	createBoard(); //make fresh board
 } */
-//HIDE YOUR SHAME!!! Errr...remove your losing score vs. the "dealer"
+
+//Errr...remove your losing score vs. the "dealer"
 var resetScore = function() {
 	//set both variables back to 0
 	playerScore = 0;
 	dealerScore = 0;
 	//get elements and replace HTML values
-	document.getElementById("player").innerHTML = playerScore;
-	document.getElementById("dealer").innerHTML = dealerScore;
+	document.querySelector("#player").innerHTML = playerScore;
+	document.querySelector("#dealer").innerHTML = dealerScore;
 	//make sure there is no evidence that a few lines of code beat you
 	console.log(playerScore, dealerScore);
+}
+
+//add animated sidebar navigation
+var sideBar = document.getElementById("memorySidebar");
+var dropDown = document.getElementById("aboutAcc");
+var accDrop = function () {
+	dropDown.classList.toggle("hide");
+}
+
+var barOpen = function() {
+	//display CSS styles with animation
+	sideBar.style.display = "block";
+	sideBar.classList.add('animate-right');
+	//remove left animation if previously added
+	if(sideBar.classList.contains('animate-left')){
+		sideBar.classList.remove('animate-left');
+	} else {
+		return
+	}
+}
+
+var barClose = function() {
+	//remove CSS right animation
+	sideBar.classList.remove('animate-right');
+	//delay left animation in order to execute
+  	setTimeout(function(){
+  		sideBar.classList.add('animate-left');
+
+  		}, 100);
+  	//delay deletion of display until animation completes
+  	setTimeout(function(){
+		sideBar.style.display = "none";
+	},500);
 }
 //initialize your board
 createBoard();
