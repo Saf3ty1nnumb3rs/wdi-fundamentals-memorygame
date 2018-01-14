@@ -168,6 +168,9 @@ footer {
 	font-weight: 600;
 	text-align: left;
 }
+.fa {
+	font-weight: 600;
+}
 .hide {
 	display: none!important;
 }

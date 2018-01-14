@@ -34,13 +34,13 @@ var checkForMatch = function(){
 					document.querySelector("#player").innerHTML = playerScore;
 					document.querySelector("#dealer").innerHTML = dealerScore;
 					alert('You have a match!!!');
-					console.log(playerScore, dealerScore);
+					//console.log(playerScore, dealerScore);
 				} else {
 					dealerScore = dealerScore += 1;
 					document.querySelector("#player").innerHTML = playerScore;
 					document.querySelector("#dealer").innerHTML = dealerScore;
 					alert("You don't have a match. Try again");
-					console.log(playerScore, dealerScore);
+					//console.log(playerScore, dealerScore);
 					}
 				}
 			} , 300);
@@ -81,7 +81,7 @@ var resetCard = function () {
     }
 
 	//make sure cIP is populated correctly
-	console.log(cardsInPlay);
+	//console.log(cardsInPlay);
 	//reassign img attribute
 	this.setAttribute('src' , 'images/back.png');
 	//remove resetCard eventListener
@@ -145,14 +145,17 @@ var resetScore = function() {
 	document.querySelector("#player").innerHTML = playerScore;
 	document.querySelector("#dealer").innerHTML = dealerScore;
 	//make sure there is no evidence that a few lines of code beat you
-	console.log(playerScore, dealerScore);
+	//console.log(playerScore, dealerScore);
 }
 
 //add animated sidebar navigation
-var sideBar = document.getElementById("memorySidebar");
-var dropDown = document.getElementById("aboutAcc");
+var sideBar = document.querySelector("#memorySidebar");
+var dropDown = document.querySelector("#aboutAcc");
+var caret = document.querySelector("#caret");
+//dropdown toggle
 var accDrop = function () {
-	dropDown.classList.toggle("hide");
+	    dropDown.classList.toggle("hide");
+		caret.classList.toggle('fa-caret-down');
 }
 
 var barOpen = function() {
