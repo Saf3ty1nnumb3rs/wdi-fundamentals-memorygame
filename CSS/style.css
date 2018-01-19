@@ -15,8 +15,7 @@ header {
 	position:  relative;
 }
 main {
-	width:  850px;
-	margin: 35px auto;
+	margin: 35px 0;
 	text-align: center;
 }
 h1 {
@@ -36,11 +35,21 @@ h2 {
 	text-align: center;
 }
 a {
-	color: #0D2C40;
+	color: #F15B31;
     font-size:  18px;
 	text-decoration: none;
-	margin: 20px;
-	border-bottom: 2px solid transparent;
+	margin: auto 10px;
+}
+#game-board {
+	max-width: 850px;
+	margin: auto;
+}
+#game-board > img {
+	cursor: pointer;
+
+}
+#paragraph {
+	max-width: 850px;
 }
 a:hover {
 	border-color: white;
@@ -53,11 +62,17 @@ a:visited {
 nav a {
 	color: #FFFFFF;
 	text-decoration: none;
+	text-align: center;
+	margin: auto 30px;
+
 }
 #memorySidebar a {
 	color: #FFB17D;
 	text-decoration: none;
 }
+nav a:hover {
+	text-decoration: none;
+	}
 nav a:visited {
 	color: #FFF7EC;
 	text-decoration: none;
@@ -72,14 +87,12 @@ p {
 	font-family:  "Droid Serif", serif;
 	line-height:  26px;
 	font-size:  18px;
+	margin: 1rem auto;
 }
 img {
 	margin: 40px 8px;
 }
-li {
-	display: inline;
-	padding: 0 10px 0 10px;
-}
+
 footer {
 	text-transform: uppercase;
 	padding: 0 20px;
@@ -104,12 +117,15 @@ footer {
 }
 .hamburger {
 	color:  #FFFFFF;
-	background-color: #F15B31;
+	background-color: transparent;
 	border: none;
 	outline: none;
-	position:  absolute;
-	top: 34px;
-	right: 34px;
+	position:  relative;
+	right: 6px;
+	vertical-align: center;
+}
+.hamburger:focus {
+	outline: none;
 }
 .large{
 	font-size: 30px!important;
@@ -161,6 +177,9 @@ footer {
     font-size: 16px;
     margin: auto;
 }
+.button:focus {
+	outline: none;
+}
 .card {
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
@@ -177,9 +196,16 @@ footer {
 .right {
     float: right!important;
 }
+.about {
+	margin-bottom: 10px;
+	overflow: auto;
+}
+.about p {
+	margin: 1rem 2px;
+}
+
 .fill {
 
-	max-width: 1440px;
 	font-family: Raleway, sans-serif;
 	background: #B7EDF1;
 	color: #FFB17D ;
@@ -196,6 +222,9 @@ footer {
 .fill span {
 	color:#F15B31 ;
 }
+.strap {
+	margin-top: 10px;
+}
 .heart {
 	color: red;
 }
@@ -208,11 +237,14 @@ footer {
 .copyright {
 	font-family: Raleway, sans-serif;
 	float: left;
+	margin: 20px 0;
 }
 .message {
 	font-family: Raleway, sans-serif;
 	float:  right;
+	display: inline;
 	margin: 20px 0;
+	white-space: nowrap;
 }
 .clearfix:after {
 visibility: hidden;
@@ -234,6 +266,13 @@ font-size: 0;
     cursor: pointer;
     white-space: nowrap;
     font-size: 16px;
+}
+#scoreboard {
+	overflow: auto;
+	white-space: nowrap;
+}
+.actionBtn:focus {
+	outline: none;
 }
 @media (min-width: 993px)
 .sidebar {

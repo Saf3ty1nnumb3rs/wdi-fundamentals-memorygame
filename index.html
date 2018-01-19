@@ -2,8 +2,10 @@
 <html>
 <head>
 	<title>Memory Card Game</title>
-	<meta charset="UTF-8" />
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Droid+Serif|Raleway:400,500,600,700" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -23,22 +25,38 @@
 		</div>
 		<a href="#top" class="bar-item button left-align">Back To Top</a>
 	</div>
+	<div class="content-fluid">
+		<div class="row justify-content-end align-self-center">
+			<div class="col-md-4">
+				<h1>Memory Game</h1>
+			</div>
+			<div class="col-md-4">
 		<!-- hamburger !-->
-	<button class="large right hamburger" type="button" onclick="javascript:barOpen()">&#9776;</button>
-
-	<h1>Memory Game</h1>
-
+				<button class="large right hamburger" type="button" onclick="javascript:barOpen()">&#9776;</button>
+			</div>
+		</div>
+	</div>
 	</header><!-- /header -->
 
 	<nav role="navigation">
-		<a href="#instructions" title="Instructions">Instructions</a>
-		<a href="#game-board" title="Game">Game</a>
+	<div class="content-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-2">
+				<a href="#instructions" title="Instructions">Instructions</a>
+			</div>
+			<div class="col-md-2">
+				<a href="#game-board" title="Game">Game</a>
+			</div>
+			<div class="col-md-2">
+				<a href="#about" title="About">About</a>
+			</div>
+		</div>
+	</div>
 	</nav>
-
 	<main role="main">
 	<section>
 	<h2 id="instructions">Instructions</h2>
-	<p>Concentration, also known as Match Match, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards. Don't worry if you don't get it on your first try; flip a card back over and try another or reset the cards and start from scratch!</p>
+	<p id="paragraph">Concentration, also known as Match Match, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards. Don't worry if you don't get it on your first try; flip a card back over and try another or reset the cards and start from scratch!</p>
 	</section>
 	<div id="game-board" class="board-clearfix">
 	</div>
@@ -46,29 +64,47 @@
 		<button id="reset" class="actionBtn" type="button" onclick="javascript:resetGame()">Deal Again</button>
 	</div>
 
-	</main>
+
 	<section>
-	<div id="scoreboard" class="fill">
-		<ul>
-			<li>Player Score: <span id="player">0</span></li>
-			<li>Dealer Score: <span id="dealer">0</span></li>
-		</ul>
+	<div id="scoreboard" class="content-fluid fill">
+		<div class="row justify-content-center">
+			<div class="col-md-3">
+			<p>Player Score: <span id="player">0</span></p>
+			</div>
+			<div class="col-md-3">
+			<p>Dealer Score: <span id="dealer">0</span></p>
+			</div>
+		</div>
 	</div>
 	<div>
-		<button id="zero" type="button" onclick="javascript:resetScore()">Reset Score</button>
+		<button id="zero" class="actionBtn" type="button" onclick="javascript:resetScore()">Reset Score</button>
 	</div>
 	</section>
 	<section>
-	<h2>About</h2>
+	<div class="container-fluid">
+	<h2 id="about" class="strap">About</h2>
 	<p>Dig a little deeper and learn who and what's behind the fun!</p>
-		<p>Check me out on<a href="https://twitter.com/baconsamples" title="Twitter" target="_blank">Twitter</a></p>
-		<p>See what I'm up to now on<a href="https://www.instagram.com/saf3ty1nnumb3rs/" title="Instagram" target="_blank">Instagram</a></p>
-		<p>Let's connect on<a href="https://www.linkedin.com/in/josh-sample-b89987a1/" title="LinkedIn" target="_blank">Linkedin</a></p>
+		<div class="row justify-content-center about">
+
+			<div class="col-sm-3">
+			<p>Check me out on<a href="https://twitter.com/baconsamples" title="Twitter" target="_blank">Twitter</a></p>
+			</div>
+			<div class="col-md-3 col-md-auto">
+			<p>See what I'm up to now on<a href="https://www.instagram.com/saf3ty1nnumb3rs/" title="Instagram" target="_blank">Instagram</a></p>
+			</div>
+			<div class="col-sm-3">
+			<p>Let's connect on<a href="https://www.linkedin.com/in/josh-sample-b89987a1/" title="LinkedIn" target="_blank">Linkedin</a></p>
+			</div>
+
+		</div>
+	</div>
 	</section>
+</main>
 	<footer class="clearfix">
 	<p class="copyright"> &copy; 2017 </p>
 	<p class="message"> Created with<span class="heart"> &hearts; </span> by <a href="https://generalassemb.ly/" title="General Assembly" target="_blank"><span class="name">GA</span></a></p>
 	</footer>
 <script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 </body>
 </html>
