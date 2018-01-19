@@ -193,6 +193,9 @@ footer {
 	letter-spacing: .08em;
 
 }
+.fill span {
+	color:#F15B31 ;
+}
 .heart {
 	color: red;
 }
@@ -219,8 +222,18 @@ clear:  both;
 height: 0;
 font-size: 0;
 }
-#zero {
+#zero, #reset {
 	margin: 20px 0;
+	font-family:  "Droid Serif", serif;
+	color: #FFB17D;
+	border-width: 3px;
+	border-color: #B7EDF1;
+	border-radius: 12px;
+    text-decoration: none;
+    background-color: #CBEDF1;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 16px;
 }
 @media (min-width: 993px)
 .sidebar {
