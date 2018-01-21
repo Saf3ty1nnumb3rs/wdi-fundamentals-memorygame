@@ -11,13 +11,16 @@
 </head>
 <body>
 	<header  id="top">
+	<!-- Sidebar - slides from right -->
 	<div id="memorySidebar" class="sidebar card" style="display: none; top: 100px; right: 0px;">
-		<!-- close button !-->
-		<button onclick="javascript:barClose();" class="bar-item button block left-align bgc" type="button" id="fade">Close &times;</button>
+		<!-- Start close button !-->
+		<button onclick="javascript:barClose();" class="bar-item button block left-align bgc" type="button" style="background-color: #FFB17D;">Close &times;</button>
+		<!-- End close button -->
 		<a href="#instructions" class="bar-item button left-align">Instructions</a>
 		<a href="#game-board" class="bar-item button left-align">Game</a>
-		<!-- about drop down !-->
+		<!-- "About" Drop Button !-->
 		<button class="bar-item button drop" type="button" onclick="javascript:accDrop();" style="color: #FFB17D;">About <i id="caret" class="fa fa-caret-down drop"></i></button>
+		<!-- End "About" Drop -->
 		<div id="aboutAcc" class="hide right-align">
 			<a	href="https://twitter.com/baconsamples" title="Twitter" target="_blank" class="bar-item button">Twitter</a>
 			<a href="https://www.instagram.com/saf3ty1nnumb3rs/" title="Instagram" target="_blank" class="bar-item button">Instagram</a>
@@ -25,48 +28,42 @@
 		</div>
 		<a href="#top" class="bar-item button left-align">Back To Top</a>
 	</div>
-	<div class="content-fluid">
-		<div class="row justify-content-end align-self-center">
-			<div class="col-md-4">
-				<h1>Memory Game</h1>
-			</div>
-			<div class="col-md-4">
-		<!-- hamburger !-->
-				<button class="large right hamburger" type="button" onclick="javascript:barOpen()">&#9776;</button>
-			</div>
+	<!-- Sidebar End/ Primary Header Below -->
+	<div class="griddle">
+		<div>
+			<h1>Memory Game</h1>
+		</div>
+		<div>
+			<!-- Burger Button -->
+			<button class="right hamburger" type="button" onclick="javascript:barOpen()">&#9776;</button>
 		</div>
 	</div>
-	</header><!-- /header -->
-
-	<nav role="navigation">
-	<div class="content-fluid">
-		<div class="row justify-content-center">
-			<div class="col-md-2">
-				<a href="#instructions" title="Instructions">Instructions</a>
-			</div>
-			<div class="col-md-2">
-				<a href="#game-board" title="Game">Game</a>
-			</div>
-			<div class="col-md-2">
-				<a href="#about" title="About">About</a>
-			</div>
-		</div>
-	</div>
+	</header>
+	<!-- /header -->
+	<!-- Nav bar -->
+	<nav class="flexNav" role="navigation">
+		<a href="#instructions" title="Instructions">Instructions</a>
+		<a href="#game-board" title="Game">Game</a>
+		<a href="#about" title="About">About</a>
 	</nav>
+	<!-- /Nav bar -->
 	<main role="main">
 	<section>
 	<h2 id="instructions">Instructions</h2>
 	<p id="paragraph">Concentration, also known as Match Match, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards. Don't worry if you don't get it on your first try; flip a card back over and try another or reset the cards and start from scratch!</p>
 	</section>
+	<!-- game-board & reset -->
 	<div id="game-board" class="board-clearfix">
 	</div>
 	<div>
-		<button id="reset" class="actionBtn" type="button" onclick="javascript:resetGame()">Deal Again</button>
+		<button class="actionBtn" type="button" onclick="javascript:resetGame()">Deal Again</button>
 	</div>
+	<!-- /game-board & /reset -->
 
 
 	<section>
-	<div id="scoreboard" class="content-fluid fill">
+	<!-- SCOREboard using bootstrap -->
+	<div class="content-fluid scoreboard">
 		<div class="row justify-content-center">
 			<div class="col-md-3">
 			<p>Player Score: <span id="player">0</span></p>
@@ -77,10 +74,12 @@
 		</div>
 	</div>
 	<div>
-		<button id="zero" class="actionBtn" type="button" onclick="javascript:resetScore()">Reset Score</button>
+		<button class="actionBtn" type="button" onclick="javascript:resetScore()">Reset Score</button>
 	</div>
+	<!-- /scoreboard & reset score -->
 	</section>
 	<section>
+	<!-- "About" section using bootstrap -->
 	<div class="container-fluid">
 	<h2 id="about" class="strap">About</h2>
 	<p>Dig a little deeper and learn who and what's behind the fun!</p>
@@ -98,8 +97,9 @@
 
 		</div>
 	</div>
+	<!-- /"About" section -->
 	</section>
-</main>
+	</main>
 	<footer class="clearfix">
 	<p class="copyright"> &copy; 2017 </p>
 	<p class="message"> Created with<span class="heart"> &hearts; </span> by <a href="https://generalassemb.ly/" title="General Assembly" target="_blank"><span class="name">GA</span></a></p>

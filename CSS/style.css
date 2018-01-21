@@ -1,23 +1,28 @@
 html{
 	box-sizing:border-box
 	}
+
 *,*:before,*:after{
 		box-sizing:inherit
 	}
+
 body {
 	text-align: center;
 	margin: 0;
 }
+
 header {
 	color:  #FFFFFF;
 	background-color: #F15B31;
 	padding:  30px 20px;
 	position:  relative;
 }
+
 main {
 	margin: 35px 0;
 	text-align: center;
 }
+
 h1 {
 	font-family: Raleway, sans-serif;
 	letter-spacing: 1px;
@@ -25,51 +30,44 @@ h1 {
 	font-size: 45px;
 	margin:  0;
 }
-nav {
-	background-color: #00A6B3;
-	padding: 20px 0;
-}
+
 h2 {
 	color: #0D2C40;
 	font-size: 20px;
 	text-align: center;
 }
+
 a {
 	color: #F15B31;
     font-size:  18px;
 	text-decoration: none;
-	margin: auto 10px;
+	margin: auto 8px;
 }
-#game-board {
-	max-width: 850px;
-	margin: auto;
-}
-#game-board > img {
-	cursor: pointer;
 
-}
-#paragraph {
-	max-width: 850px;
-}
 a:hover {
+	color: #FFB17D;
 	border-color: white;
 }
 a:visited {
 	color: #FFB17D;
 	text-decoration: none;
 }
+/* nav section styles */
+.flexNav {
+	display: flex;
+	justify-content: center;
+	background-color: #00A6B3;
+	padding: 20px 0;
+}
 
 nav a {
 	color: #FFFFFF;
 	text-decoration: none;
 	text-align: center;
-	margin: auto 30px;
+	margin: auto 23px;
 
 }
-#memorySidebar a {
-	color: #FFB17D;
-	text-decoration: none;
-}
+
 nav a:hover {
 	text-decoration: none;
 	}
@@ -88,12 +86,14 @@ p {
 	line-height:  26px;
 	font-size:  18px;
 	margin: 1rem auto;
+	max-width: 850px;
 }
 img {
 	margin: 40px 8px;
 }
 
 footer {
+	display: flex;
 	text-transform: uppercase;
 	padding: 0 20px;
 	background-color: #0D2C40;
@@ -112,23 +112,18 @@ footer {
     white-space: normal;
     float: none;
 }
-.bgc {
-	background-color: #FFB17D!important;
-}
+
 .hamburger {
 	color:  #FFFFFF;
 	background-color: transparent;
 	border: none;
 	outline: none;
 	position:  relative;
-	right: 6px;
 	vertical-align: center;
+	font-size: 30px;
 }
 .hamburger:focus {
 	outline: none;
-}
-.large{
-	font-size: 30px!important;
 }
 .left-align {
 	text-align: left;
@@ -194,17 +189,11 @@ footer {
 	display: none!important;
 }
 .right {
-    float: right!important;
-}
-.about {
-	margin-bottom: 10px;
-	overflow: auto;
-}
-.about p {
-	margin: 1rem 2px;
+    float: right;
 }
 
-.fill {
+/* scoreboard styles */
+.scoreboard {
 
 	font-family: Raleway, sans-serif;
 	background: #B7EDF1;
@@ -216,15 +205,22 @@ footer {
 	margin: 20px auto;
 	padding: 0 20px;
 	overflow: auto;
+	white-space: nowrap;
 	letter-spacing: .08em;
 
 }
-.fill span {
+.scoreboard span {
 	color:#F15B31 ;
+}
+/* About section styling in addition to Bootstrap */
+.about {
+	margin-bottom: 10px;
+	overflow: auto;
 }
 .strap {
 	margin-top: 10px;
 }
+/* style for footer fun */
 .heart {
 	color: red;
 }
@@ -236,27 +232,29 @@ footer {
 }
 .copyright {
 	font-family: Raleway, sans-serif;
-	float: left;
-	margin: 20px 0;
+	margin: 20px auto 20px 4px;
 }
+
 .message {
 	font-family: Raleway, sans-serif;
-	float:  right;
-	display: inline;
-	margin: 20px 0;
+	margin: 20px 4px 20px auto;
 	white-space: nowrap;
 }
+
 .clearfix:after {
-visibility: hidden;
-display: block;
-content:  " ";
-clear:  both;
-height: 0;
-font-size: 0;
+	visibility: hidden;
+	display: block;
+	content:  " ";
+	clear:  both;
+	height: 0;
+	font-size: 0;
 }
-#zero, #reset {
+/*End styles for footer fun */
+/* separate styles for game buttons */
+.actionBtn {
 	margin: 20px 0;
 	font-family:  "Droid Serif", serif;
+	font-size: 16px;
 	color: #FFB17D;
 	border-width: 3px;
 	border-color: #B7EDF1;
@@ -265,16 +263,42 @@ font-size: 0;
     background-color: #CBEDF1;
     cursor: pointer;
     white-space: nowrap;
-    font-size: 16px;
+    overflow:  auto;
 }
-#scoreboard {
-	overflow: auto;
-	white-space: nowrap;
-}
+/* Remove standard focus CSS from bootstrap*/
 .actionBtn:focus {
 	outline: none;
 }
-@media (min-width: 993px)
-.sidebar {
-    display: block!important;
+/* pointer for cards */
+#game-board > img {
+	cursor: pointer;
+}
+/* Set CSS Grid for header */
+.griddle {
+	height: 100%;
+    display: grid;
+    grid-template-columns: 25px auto 25px;
+
+}
+
+.griddle > div {
+    justify-items: center;
+    align-items: center;
+}
+
+.griddle > div:nth-child(1) {
+  grid-column:2;
+}
+
+.griddle > div:nth-child(2) {
+  grid-column: 3;
+}
+/* set visual for smaller screens - RESEARCH MORE */
+@media only screen and (max-width: 768px) {
+.griddle {
+    display: block;
+}
+.right {
+	float: none;
+}
 }

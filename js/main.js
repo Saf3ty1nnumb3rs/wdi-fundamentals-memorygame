@@ -144,7 +144,6 @@ var resetScore = function() {
 	//get elements and replace HTML values
 	document.querySelector("#player").innerHTML = playerScore;
 	document.querySelector("#dealer").innerHTML = dealerScore;
-	//make sure there is no evidence that a few lines of code beat you
 	//console.log(playerScore, dealerScore);
 }
 
