@@ -98,7 +98,7 @@ footer {
 	padding: 0 20px;
 	background-color: #0D2C40;
 	color: white;
-	font-size: 14px;
+	font-size: 2vw;
 	letter-spacing: .08em;
 	font-weight: 500;
 	overflow: auto;
@@ -277,7 +277,7 @@ footer {
 .griddle {
 	height: 100%;
     display: grid;
-    grid-template-columns: 25px auto 25px;
+    grid-template-columns: 200px auto 200px;
 
 }
 
